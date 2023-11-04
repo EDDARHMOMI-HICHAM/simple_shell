@@ -1,10 +1,10 @@
-#include "main.h"
+#include "shell.h"
 
 
 
 char *readline(size_t *num_chars)
 {
-	size_t n;
+	int n;
 	char *buffer = malloc(1024);
 
 	if (buffer == NULL)

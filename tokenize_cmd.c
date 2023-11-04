@@ -16,6 +16,7 @@ char **tokenize_cmd(char *cmd)
 	char del[] = " \t\n";
 	char *token_copy = NULL;
 	char *cmd_copy = strdup(cmd);
+	char *token;
 
 	token_copy = strtok(cmd_copy, del);
 	while (token_copy != NULL)
@@ -25,7 +26,7 @@ char **tokenize_cmd(char *cmd)
 	}
 	tokens = malloc(sizeof(char *) * (nb + 1));
 
-	char *token = strtok(cmd, del);
+	token = strtok(cmd, del);
 
 	while (token != NULL)
 	{
