@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 		prompt();
 		line = readline(&num);
 		tokens = tokenize_cmd(line);
+		exec(tokens);
 		for (i = 0; tokens[i] != NULL; i++)
 		{
 			printf("%s\n", tokens[i]);
