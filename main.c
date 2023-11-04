@@ -31,5 +31,6 @@ int main(int argc, char *argv[])
 		free(tokens);
 		free(line);
 	}
+	free(line);
 	return (0);
 }

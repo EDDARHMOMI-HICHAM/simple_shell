@@ -19,7 +19,10 @@ char *readline(size_t *num_chars)
 		free(buffer);
 		return (NULL);
 	}
-	buffer[n - 1] = '\0';
-	*num_chars = n - 1;
-	return (buffer);
+	else
+	{
+		buffer[n - 1] = '\0';
+		*num_chars = n - 1;
+		return (buffer);
+	}
 }
