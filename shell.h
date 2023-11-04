@@ -17,8 +17,9 @@
 #include <errno.h>
 
 int _putchar(char c);
-char *read_line(void);
 char **tokenize_cmd(char *cmd);
+char *readline(size_t *num_chars);
+void prompt();
 
 
 #endif
