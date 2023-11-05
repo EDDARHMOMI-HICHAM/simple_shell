@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	size_t num = 0;
-	char *line;
+	char *line = malloc(sizeof(char) * 1024);
 	int sh = 1;
 	char **tokens;
 	int i;
@@ -21,16 +21,22 @@ int main(int argc, char *argv[])
 	while (sh)
 	{
 		prompt();
-		line = readline(&num);
+		readline(&num, line);
 		tokens = tokenize_cmd(line);
-		exec(tokens);
+		if (strcmp(tokens[0], "exit") == 0)
+		{
+			free(line);
+			free(tokens[0]);
+			free(tokens);
+			return (0);
+		}
+	/**	exec(tokens); */
 		for (i = 0; tokens[i] != NULL; i++)
 		{
 			printf("%s\n", tokens[i]);
 			free(tokens[i]);
 		}
 		free(tokens);
-		free(line);
 	}
 	free(line);
 	return (0);

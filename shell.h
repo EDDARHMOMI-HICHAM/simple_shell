@@ -18,7 +18,7 @@
 
 int _putchar(char c);
 char **tokenize_cmd(char *cmd);
-char *readline(size_t *num_chars);
+void readline(size_t *num_chars, char *line);
 void prompt();
 int _strlen(char *str);
 void exec(char **cmd);
