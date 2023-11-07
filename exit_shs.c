@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-*  exit_shs - exit the our shell handling 
+* exit_shs - exit the our shell handling
 * @cmd: A pointer to an argument.
 * Return: zero after finishing the handling .
 */
