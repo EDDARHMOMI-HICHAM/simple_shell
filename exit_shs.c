@@ -10,28 +10,30 @@ int exit_shs(char *cmd)
 {
 	char **tokens;
 	int status;
+	char *full_path;
 
-	while (1)
+
+	if (cmd == NULL || cmd[0] == '\0')
+		return (0);
+
+	tokens = tokenize_cmd(cmd);
+	full_path = search_path(tokens[0]);
+	if (strcmp(tokens[0], "exit") == 0)
 	{
-		if (cmd == NULL) {
-			printf("\n");
-			break;
-		}
-
-		tokens = tokenize_cmd(cmd);
-
-		if (strcmp(tokens[0], "exit") == 0) {
-			break;
-		}
-
-		status = exec_cmd(tokens);
-		if (status != 0) {
-			printf("Error executing command.\n");
-		}
-
-		free(cmd);
+		free(tokens[0]);
 		free(tokens);
+		free(cmd);
+		exit(0);
 	}
+	full_path = search_path(tokens[0]);
+
+	status = exec_cmd(tokens, full_path);
+	if (status != 0)
+	{
+		printf("Error executing command.\n");
+	}
+	free(tokens[0]);
+	free(tokens);
 
 	return (0);
 }

@@ -13,8 +13,6 @@ int main(int argc, char *argv[])
 	size_t num = 0;
 	char *line = malloc(sizeof(char) * 1024);
 	int sh = 1;
-	char **tokens;
-	int i;
 
 	(void) argc;
 	(void) argv;
@@ -22,21 +20,7 @@ int main(int argc, char *argv[])
 	{
 		prompt();
 		readline(&num, line);
-		tokens = tokenize_cmd(line);
-		if (strcmp(tokens[0], "exit") == 0)
-		{
-			free(line);
-			free(tokens[0]);
-			free(tokens);
-			return (0);
-		}
-	/**	exec(tokens); */
-		for (i = 0; tokens[i] != NULL; i++)
-		{
-			printf("%s\n", tokens[i]);
-			free(tokens[i]);
-		}
-		free(tokens);
+		exit_shs(line);
 	}
 	free(line);
 	return (0);
