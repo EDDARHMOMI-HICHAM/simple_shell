@@ -14,7 +14,10 @@ int exit_shs(char *cmd)
 
 
 	if (cmd == NULL || cmd[0] == '\0')
-		return (0);
+	{
+		
+		return  (0);
+	}
 
 	tokens = tokenize_cmd(cmd);
 	full_path = search_path(tokens[0]);
