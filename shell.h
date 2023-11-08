@@ -29,6 +29,7 @@ int exit_shs(char *cmd);
 char *search_path(char *cmd);
 int _strlen(char *str);
 int change_dir(char *cmd);
+void handle_ctrl_d(void);
 
 
 #endif

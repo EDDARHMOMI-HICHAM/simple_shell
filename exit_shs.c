@@ -15,8 +15,8 @@ int exit_shs(char *cmd)
 
 	if (cmd == NULL || cmd[0] == '\0')
 	{
-		
-		return  (0);
+	/*	handle_ctrl_d();*/
+		return(0);
 	}
 
 	tokens = tokenize_cmd(cmd);
