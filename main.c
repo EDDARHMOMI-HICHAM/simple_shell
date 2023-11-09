@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 		prompt();
 		readline(&num, line);
 		exit_shs(line);
+	/*	change_dir(line); */
+	/*	add_history(line); */
 	}
 	free(line);
 	return (0);

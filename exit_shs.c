@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-*  exit_shs - exit the our shell handling 
+* exit_shs - exit the our shell handling
 * @cmd: A pointer to an argument.
 * Return: zero after finishing the handling .
 */
@@ -15,7 +15,10 @@ int exit_shs(char *cmd)
 
 
 	if (cmd == NULL || cmd[0] == '\0')
-		return (0);
+	{
+	/*	handle_ctrl_d();*/
+		return(0);
+	}
 
 	cmd_copy = strdup(cmd);
 	tokens = tokenize_cmd(cmd);

@@ -5,9 +5,10 @@
  * Return: void
  */
 
-void prompt()
+void prompt(void)
 {
         char *prompt = "$ ";
 
         write(STDOUT_FILENO, prompt, _strlen(prompt));
 }
+
