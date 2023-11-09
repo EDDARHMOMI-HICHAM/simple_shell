@@ -26,7 +26,7 @@ char **tokenize_cmd(char *cmd);
 void readline(size_t *num_chars, char *line);
 void prompt(void);
 int _strlen(char *str);
-int exec_cmd(char **cmd, char *cmd_path, char *cmd_copy);
+int exec_cmd(char **cmd, char *cmd_path);
 int exit_shs(char *cmd);
 char *search_path(char *cmd);
 int _strlen(char *str);

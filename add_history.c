@@ -9,11 +9,11 @@
 void  add_history(char *cmd)
 {
 	char history[LAST_ENTERD][1024];
-	int i;
+	int i = 0;
 
 	if (i < LAST_ENTERD)
 	{
-		strcpy(strcpy(history[i], cmd);
+		strcpy(history[i], cmd);
 		i++;
 	}
 }

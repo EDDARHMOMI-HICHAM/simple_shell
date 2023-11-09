@@ -32,7 +32,7 @@ int exit_shs(char *cmd)
 	}
 	full_path = search_path(tokens[0]);
 
-	status = exec_cmd(tokens, full_path, cmd_copy);
+	status = exec_cmd(tokens, full_path);
 	if (status != 0)
 	{
 		printf("Error executing command.\n");
