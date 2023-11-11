@@ -11,12 +11,12 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char cmd[1024], prompt[] = "$ ";
-	int nread = 0;
+	int nread = 0, fd = fileno(stdin), pipe = 1;
 	char *cmd_copy, *full_path;
 	char **tokens;
 	(void) argc, (void) argv, (void) env;
 
-	while (1)
+	while (1 && pipe)
 	{
 		write(STDOUT_FILENO, prompt, sizeof(prompt));
 		_readline(cmd, &nread);
@@ -24,6 +24,11 @@ int main(int argc, char *argv[], char *env[])
 		if (cmd == NULL || cmd[0] == '\0')
 			continue;
 
+		if (!isatty(fd))
+		{
+			fflush(stdin);
+			pipe = 0;
+		}
 		cmd_copy = strdup(cmd);
 		tokens = tokenize_cmd(cmd);
 		if (strcmp(tokens[0], "exit") == 0)
