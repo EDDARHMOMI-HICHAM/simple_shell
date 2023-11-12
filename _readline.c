@@ -7,17 +7,33 @@
  * Return: returns the arrays of chars read
  */
 
-void _readline(char *cmd, int *nread)
+void _readline(char *cmd, int *nread, FILE *file)
 {
-	*nread = read(STDIN_FILENO, cmd, 1024);
-	if (*nread < 0)
+	if (file == NULL)
 	{
-		printf("Exiting the shell\n");
-		exit(EXIT_FAILURE);
+		*nread = read(STDIN_FILENO, cmd, 1024);
+		if (*nread < 0)
+		{
+			perror("Error reading from stdin");
+			exit(EXIT_FAILURE);
+		}
+	} else
+	{
+		if (fgets(cmd, 1024, file) == NULL)
+		{
+			*nread = 0;
+			if (file != stdin)
+			{
+				write(STDOUT_FILENO, "\n", 1);
+				exit(EXIT_SUCCESS);
+			}
+			return;
+		}
+		*nread = strlen(cmd);
 	}
-	else if (*nread == 0)
+	if (*nread == 0)
 	{
-		printf("Exiting the shell EOF\n");
+		write(STDOUT_FILENO, "\n", 1);
 		exit(EXIT_SUCCESS);
 	}
 	cmd[*nread - 1] = '\0';

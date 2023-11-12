@@ -23,7 +23,7 @@ extern char **environ;
 
 int _putchar(char c);
 char **tokenize_cmd(char *cmd);
-void _readline(char *cmd, int *nread);
+void _readline(char *cmd, int *nread, FILE *file);
 void prompt(void);
 int _strlen(char *str);
 int exec_cmd(char **cmd, char *cmd_path);

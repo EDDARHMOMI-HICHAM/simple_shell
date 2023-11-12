@@ -11,27 +11,25 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char cmd[1024], prompt[] = "$ ";
-	int nread = 0, fd = fileno(stdin), pipe = 1;
+	int nread = 0, fd = fileno(stdin) /*pipe = 1*/;
 	char *cmd_copy, *full_path;
 	char **tokens;
+	FILE *file;
 	(void) argc, (void) argv, (void) env;
 
-	while (1 && pipe)
+	if (!isatty(fd))
+		file = stdin;
+	else
+		file = NULL;
+	while (1)
 	{
-		write(STDOUT_FILENO, prompt, sizeof(prompt));
-		_readline(cmd, &nread);
-
+		if (file == NULL)
+			write(STDOUT_FILENO, prompt, sizeof(prompt));
+		_readline(cmd, &nread, file);
+		if (nread == 0)
+			break;
 		if (cmd == NULL || cmd[0] == '\0')
 			continue;
-
-		if (strcmp(tokens[0], "env") == 0)
-			print_env();
-
-		if (!isatty(fd))
-		{
-			fflush(stdin);
-			pipe = 0;
-		}
 		cmd_copy = strdup(cmd);
 		tokens = tokenize_cmd(cmd);
 		if (strcmp(tokens[0], "exit") == 0)
@@ -41,6 +39,8 @@ int main(int argc, char *argv[], char *env[])
 			free(cmd_copy);
 			exit(EXIT_SUCCESS);
 		}
+		if (strcmp(tokens[0], "env") == 0)
+			print_env();
 
 		 if (strcmp(tokens[0], "cd") == 0)
 		 {
