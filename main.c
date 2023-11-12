@@ -24,6 +24,9 @@ int main(int argc, char *argv[], char *env[])
 		if (cmd == NULL || cmd[0] == '\0')
 			continue;
 
+		if (strcmp(tokens[0], "env") == 0)
+			print_env();
+
 		if (!isatty(fd))
 		{
 			fflush(stdin);
@@ -38,6 +41,12 @@ int main(int argc, char *argv[], char *env[])
 			free(cmd_copy);
 			exit(EXIT_SUCCESS);
 		}
+
+		 if (strcmp(tokens[0], "cd") == 0)
+		 {
+			change_dir(tokens[1]);
+			continue;
+		 }
 		full_path = search_path(tokens[0]);
 		exec_cmd(tokens, full_path);
 		free(tokens[0]);

@@ -23,12 +23,14 @@ int change_dir(char *cmd)
 		{
 			printf("Directory does not exist.\n");
 			return (1);
+
 		}
 
 		if (chdir(tokens[1]) != 0)
 		{
 			printf("Failed to change directory.\n");
 			return (1);
+
 		}
 		return (0);
 	}

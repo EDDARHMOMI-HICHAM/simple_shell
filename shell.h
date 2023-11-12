@@ -33,7 +33,7 @@ int _strlen(char *str);
 int change_dir(char *cmd);
 void handle_ctrl_d(void);
 void  add_history(char *cmd);
-
+void print_env(void);
 
 #endif
 
