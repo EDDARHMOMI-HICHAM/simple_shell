@@ -11,15 +11,16 @@
 
 int exec_cmd(char **cmd, char *cmd_path)
 {
+	char **env = environ;
 	pid_t child = fork();
 
 	if (cmd_path == NULL)
 		cmd_path = cmd[0];
 	if (child == 0)
 	{
-		execve(cmd_path, cmd, NULL);
+		execve(cmd_path, cmd, env);
 		perror(cmd[0]);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	else if (child < 0)
 	{

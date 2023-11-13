@@ -7,7 +7,7 @@
  * and prints each variable along with its value to the standard output.
  */
 
-extern char **environ;
+/*extern char **environ;*/
 
 void print_env(void)
 {
