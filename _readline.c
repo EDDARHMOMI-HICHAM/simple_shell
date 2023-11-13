@@ -4,6 +4,7 @@
  * _readline - A function that reads from the stdin
  * @nread: a pointer to update the no of chars read
  * @cmd: the input from the user
+ * @file: the file to read from, stdin or redirected
  * Return: returns the arrays of chars read
  */
 

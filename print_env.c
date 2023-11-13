@@ -2,12 +2,9 @@
 
 /**
  * print_env - Prints the environment variables.
- *
- * This function iterates through the environment variables
- * and prints each variable along with its value to the standard output.
+ * Return: void
  */
 
-/*extern char **environ;*/
 
 void print_env(void)
 {
