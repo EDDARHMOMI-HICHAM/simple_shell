@@ -13,7 +13,10 @@ void check_token(char **tokens)
 	if (strcmp(tokens[0], "env") == 0)
 		print_env();
 	if (strcmp(tokens[0], "cd") == 0)
+	{
+		printf("i am here\n");
 		change_dir(tokens[1]);
+	}
 	full_path = search_path(tokens[0]);
 	exec_cmd(tokens, full_path);
 }
