@@ -11,7 +11,7 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char cmd[1024], prompt[] = "$ ";
-	int nread = 0, fd = fileno(stdin) /*pipe = 1*/;
+	int nread = 0, fd = fileno(stdin) /*pipe = 1 i = 0*/;
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
@@ -28,7 +28,10 @@ int main(int argc, char *argv[], char *env[])
 		_readline(cmd, &nread, file);
 		if (nread == 0)
 			break;
-		if (cmd == NULL || cmd[0] == '\0')
+		if (cmd == NULL)
+			continue;
+		rem_space(cmd);
+		if (cmd[0] == '\0')
 			continue;
 		cmd_copy = strdup(cmd);
 		tokens = tokenize_cmd(cmd);

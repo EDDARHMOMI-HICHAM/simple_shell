@@ -19,4 +19,5 @@ void check_token(char **tokens)
 		full_path = search_path(tokens[0]);
 		exec_cmd(tokens, full_path);
 	}
+	free(full_path);
 }
