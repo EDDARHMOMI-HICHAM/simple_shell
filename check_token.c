@@ -6,7 +6,7 @@
  * Return: void
  */
 
-void check_token(char **tokens)
+void check_token(char **tokens, char *argv[])
 {
 	char *full_path;
 
@@ -17,7 +17,7 @@ void check_token(char **tokens)
 	else
 	{
 		full_path = search_path(tokens[0]);
-		exec_cmd(tokens, full_path);
+		exec_cmd(tokens, full_path, argv);
 		free(full_path);
 	}
 }
