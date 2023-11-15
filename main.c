@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *env[])
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
-	(void) argc, (void) argv, (void) env;
+	(void) argc, (void) env;
 
 	if (!isatty(fd))
 		file = stdin;
@@ -42,7 +42,7 @@ int main(int argc, char *argv[], char *env[])
 			free(cmd_copy);
 			exit(EXIT_SUCCESS);
 		}
-		check_token(tokens);
+		check_token(tokens, argv);
 		/*free(tokens[0]);*/
 		free(tokens[0]);
 		free(tokens);
