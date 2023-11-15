@@ -3,6 +3,7 @@
 /**
  * check_token - A function that checks the user input for special command
  * @tokens: an array of commands provided by the user
+ * @argv: an array of strings representing the command-line arguments
  * Return: void
  */
 

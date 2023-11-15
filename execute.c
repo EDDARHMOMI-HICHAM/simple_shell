@@ -5,6 +5,7 @@
 *  exec_cmd - execute a command with arguments and wait for it to finish.
 * @cmd: A double pointer to an array of commands and arguments.
 * @cmd_path: the path to the command
+* @argv: an array of strings representing the command-line arguments
 * Return: zero after finishing execution.
 */
 
