@@ -49,13 +49,13 @@ char *search_path(char *cmd)
 		{
 			sprintf(full_path, "%s/%s", token, cmd);
 			if (file_exists(full_path))
-		{
-			free(path);
-			return (full_path);
+			{
+				free(path);
+				return (full_path);
+			}
+			free(full_path);
 		}
-		free(full_path);
-	}
-	token = strtok(NULL, ":");
+		token = strtok(NULL, ":");
 	}
 
 	free(path);

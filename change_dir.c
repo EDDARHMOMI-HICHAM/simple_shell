@@ -9,7 +9,6 @@
 
 int change_dir(char *cmd)
 {
-	char *cwd = getcwd(NULL, 0);
 
 	if (cmd == NULL || strcmp(cmd, "~") == 0)
 	{
@@ -34,13 +33,6 @@ int change_dir(char *cmd)
 		return (1);
 	}
 
-	if (cwd == NULL)
-	{
-		printf("Failed to get current working directory.\n");
-		return (1);
-	}
 
-
-	free(cwd);
 	return (0);
 }

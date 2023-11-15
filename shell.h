@@ -37,6 +37,7 @@ void  add_history(char *cmd);
 void print_env(void);
 void check_token(char **tokens);
 void rem_space(char *str);
+void free_tokens(char **tokens);
 
 #endif
 

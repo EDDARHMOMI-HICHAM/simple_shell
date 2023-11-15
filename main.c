@@ -43,6 +43,7 @@ int main(int argc, char *argv[], char *env[])
 			exit(EXIT_SUCCESS);
 		}
 		check_token(tokens);
+		/*free(tokens[0]);*/
 		free(tokens[0]);
 		free(tokens);
 		free(cmd_copy);
