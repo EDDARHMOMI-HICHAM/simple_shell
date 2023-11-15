@@ -20,8 +20,9 @@ int exec_cmd(char **cmd, char *cmd_path)
 	if (child == 0)
 	{
 		execve(cmd_path, cmd, env);
-		perror(cmd[0]);
-		exit(127);
+		write(STDERR_FILENO, cmd[0], _strlen(cmd[0]));
+		write(STDERR_FILENO, ": command not found\n", 20);
+		exit(EXIT_FAILURE);
 	}
 	else if (child < 0)
 	{
