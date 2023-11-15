@@ -1,3 +1,4 @@
+
 #include "shell.h"
 
 /**
@@ -28,8 +29,11 @@ int exec_cmd(char **cmd, char *cmd_path)
 		return (-1);
 	}
 	else
-
+	{
 		waitpid(child, &status, 0);
+
+	}
 
 	return (0);
 }
+

@@ -15,6 +15,7 @@
 #include <sys/wait.h>
 #include <sys/resource.h>
 #include <errno.h>
+#include <ctype.h>
 
 #define LAST_ENTERD 1024
 
@@ -38,3 +39,4 @@ void check_token(char **tokens);
 void rem_space(char *str);
 
 #endif
+

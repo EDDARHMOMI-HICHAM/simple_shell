@@ -1,10 +1,12 @@
 #include "shell.h"
 
+
 /**
  * file_exists - a function that checks if an exectable exist in a directory
  * @path: a const path
  * Return: int
  */
+
 
 int file_exists(char *path)
 {
@@ -45,7 +47,7 @@ char *search_path(char *cmd)
 		full_path = malloc(_strlen(token) + _strlen(cmd) + 2);
 		if (full_path)
 		{
-			printf(full_path, "%s/%s", token, cmd);
+			sprintf(full_path, "%s/%s", token, cmd);
 			if (file_exists(full_path))
 		{
 			free(path);
