@@ -19,6 +19,7 @@ void check_token(char **tokens, char *argv[])
 	{
 		full_path = search_path(tokens[0]);
 		exec_cmd(tokens, full_path, argv);
-		free(full_path);
+		if (full_path != NULL)
+			free(full_path);
 	}
 }
