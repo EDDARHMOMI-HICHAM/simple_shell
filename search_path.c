@@ -31,7 +31,6 @@ char *search_path(char *cmd)
 	path_env = getenv("PATH");
 	if (!path_env)
 	{
-		fprintf(stderr, "Error: PATH environment variable not found\n");
 		return (NULL);
 	}
 
