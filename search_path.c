@@ -1,4 +1,4 @@
-#include "shell.h"
+include "shell.h"
 
 
 /**
@@ -14,6 +14,7 @@ int file_exists(char *path)
 
 	return (stat(path, &buffer) == 0);
 }
+
 
 /**
  * search_path - A function that searches the environ path for an executable
@@ -31,6 +32,7 @@ char *search_path(char *cmd)
 	path_env = getenv("PATH");
 	if (!path_env)
 	{
+		fprintf(stderr, "Error: PATH environment variable not found\n");
 		return (NULL);
 	}
 
@@ -42,6 +44,7 @@ char *search_path(char *cmd)
 	}
 
 	token = strtok(path, ":");
+
 	while (token != NULL)
 	{
 		full_path = malloc(_strlen(token) + _strlen(cmd) + 2);
