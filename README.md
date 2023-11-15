@@ -1,9 +1,3 @@
-<!DOCTYPE  htm>
-
-<html>
-<header>
-
-<title>readme</title>
 
 <body>
 
@@ -40,28 +34,37 @@ To pipe commands together, use the | character. For example, to pipe the output 
 ```bash
 ls | grep "my_file.txt"
 ```
+
 This would print the names of all files in the current directory that contain the string "my_file.txt".
 
 <h2>Examples</h2>
 
 The following are some examples of how to use the shell:
+
 <h3> List the contents of the current directory</h3>
+
 ```bash
 ls
 ```
+
 <h3> Change the current directory to /home/user</h3>
+
 ```bash
 cd /home/user
 ```
+
 <h3> Print the working directory</h3>
+
 ```bash
 pwd
 ```
+
 <h3> Print the string "Hello, world!" to the console</h3>
 
 ```bash
 echo "Hello, world!"
 ```
+
 <h3> Exit the shell</h3>
 
 ```bash
