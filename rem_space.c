@@ -1,4 +1,6 @@
 #include "shell.h"
+#include <ctype.h>
+
 
 /**
  * rem_space - A function that checks if a given string is empty

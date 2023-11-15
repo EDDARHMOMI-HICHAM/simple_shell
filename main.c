@@ -24,23 +24,23 @@ int main(int argc, char *argv[], char *env[])
 	while (1)
 	{
 		if (file == NULL)
-			xwrite(STDOUT_FILENO, prompt, sizeof(prompt));
+			write(STDOUT_FILENO, prompt, sizeof(prompt));
 		_readline(cmd, &nread, file);
 		if (nread == 0)
-			xbreak;
+			break;
 		if (cmd == NULL)
-			xcontinue;
+			continue;
 		rem_space(cmd);
 		if (cmd[0] == '\0')
-			xcontinue;
+			continue;
 		cmd_copy = strdup(cmd);
 		tokens = tokenize_cmd(cmd);
 		if (strcmp(tokens[0], "exit") == 0)
 		{
-			xfree(tokens[0]);
-			xfree(tokens);
-			xfree(cmd_copy);
-			xexit(EXIT_SUCCESS);
+			free(tokens[0]);
+			free(tokens);
+			free(cmd_copy);
+			exit(EXIT_SUCCESS);
 		}
 		check_token(tokens);
 		free(tokens[0]);
