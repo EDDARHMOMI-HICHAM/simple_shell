@@ -1,3 +1,12 @@
+<!DOCTYPE  htm>
+
+<html>
+<header>
+
+<title>readme</title>
+
+<body>
+
 This is a simple shell project implemented in C. It supports basic shell commands, such as ls, cd, pwd, echo, and exit. The shell can also be used to pipe commands together and to execute commands in the background.
 
 
@@ -62,3 +71,4 @@ exit
 <h2>info</h2>
 
 The shell is still under development, and there are some known issues. For example, the shell does not support all shell commands, and it does not handle errors .
+</body>
