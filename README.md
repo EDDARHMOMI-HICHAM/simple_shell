@@ -16,7 +16,7 @@ To build the shell, run the following command:
 
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
-
+```
 
 <h1>Usage</h2>
 
@@ -40,7 +40,7 @@ To pipe commands together, use the | character. For example, to pipe the output 
 ```bash
 ls | grep "my_file.txt"
 This would print the names of all files in the current directory that contain the string "my_file.txt".
-
+```
 
 
 <h2>Examples</h2>
@@ -50,23 +50,24 @@ The following are some examples of how to use the shell:
 ```bash
 <h3> List the contents of the current directory</h3>
 ls
+```
 
 ```bash
 <h3> Change the current directory to /home/user</h3>
 cd /home/user
-
+```
 ```bash
 <h3> Print the working directory</h3>
 pwd
-
+```
 ```bash
 <h3> Print the string "Hello, world!" to the console</h3>
 echo "Hello, world!"
-
+```
 ```bash
 <h3> Exit the shell</h3>
 exit
-
+```
 
 <h2>info</h2>
 
