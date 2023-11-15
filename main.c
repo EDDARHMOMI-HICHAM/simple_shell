@@ -37,12 +37,10 @@ int main(int argc, char *argv[], char *env[])
 		tokens = tokenize_cmd(cmd);
 		if (strcmp(tokens[0], "exit") == 0)
 		{
-		/*	free(tokens[0]);
+			free(tokens[0]);
 			free(tokens);
 			free(cmd_copy);
 			exit(EXIT_SUCCESS);
-			*/
-			exit_shs(cmd);
 		}
 		check_token(tokens);
 		free(tokens[0]);
