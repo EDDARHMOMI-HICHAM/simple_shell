@@ -12,6 +12,7 @@ void check_token(char **tokens)
 
 	if (strcmp(tokens[0], "env") == 0)
 		print_env();
+
 	else if (strcmp(tokens[0], "cd") == 0)
 		change_dir(tokens[1]);
 	else
@@ -19,4 +20,5 @@ void check_token(char **tokens)
 		full_path = search_path(tokens[0]);
 		exec_cmd(tokens, full_path);
 	}
+	free(full_path);
 }

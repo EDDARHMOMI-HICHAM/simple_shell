@@ -12,15 +12,15 @@ int exec_cmd(char **cmd, char *cmd_path)
 {
 	char **env = environ;
 	pid_t child = fork();
+	int status;
 
 	if (cmd_path == NULL)
 		cmd_path = cmd[0];
 	if (child == 0)
 	{
 		execve(cmd_path, cmd, env);
-		write(STDERR_FILENO, cmd[0], _strlen(cmd[0]));
-		write(STDERR_FILENO, ": command not found\n", 20);
-		exit(EXIT_FAILURE);
+		perror(cmd[0]);
+		exit(127);
 	}
 	else if (child < 0)
 	{
@@ -28,9 +28,8 @@ int exec_cmd(char **cmd, char *cmd_path)
 		return (-1);
 	}
 	else
-	{
-		waitpid(child, NULL, 0);
-	}
+
+		waitpid(child, &status, 0);
 
 	return (0);
 }
