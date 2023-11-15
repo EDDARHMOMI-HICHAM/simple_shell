@@ -23,7 +23,7 @@ int change_dir(char *cmd)
 
 	else if (access(cmd, F_OK) != 0)
 	{
-		printf("cd: %s: No such file or directory.\n ",cmd);
+		printf("cd: %s: No such file or directory.\n ", cmd);
 		return (1);
 
 	}
