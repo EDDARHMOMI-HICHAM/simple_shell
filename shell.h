@@ -35,7 +35,7 @@ int change_dir(char *cmd);
 void handle_ctrl_d(void);
 void add_history(char *cmd);
 void print_env(void);
-void check_token(char **tokens, char *argv[]);
+int check_token(char **tokens, char *argv[]);
 void rem_space(char *str);
 void free_tokens(char **tokens);
 

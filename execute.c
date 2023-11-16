@@ -13,16 +13,18 @@
 int exec_cmd(char **cmd, char *cmd_path, char *argv[])
 {
 	char **env = environ;
-	pid_t child = fork();
+	pid_t child = 0;
 	int status;
 
 	if (cmd_path == NULL)
-		cmd_path = cmd[0];
+	{
+		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], cmd[0]);
+		return (127);
+	}
+	child = fork();
 	if (child == 0)
 	{
 		execve(cmd_path, cmd, env);
-		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], cmd[0]);
-		exit(EXIT_FAILURE);
 	}
 	else if (child < 0)
 	{

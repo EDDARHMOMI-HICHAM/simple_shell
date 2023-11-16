@@ -11,7 +11,7 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char cmd[1024], prompt[] = "$ ";
-	int nread = 0, fd = fileno(stdin) /*pipe = 1 i = 0*/;
+	int nread = 0, fd = fileno(stdin), status = 0 /*pipe = 1 i = 0*/;
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
@@ -37,16 +37,13 @@ int main(int argc, char *argv[], char *env[])
 		tokens = tokenize_cmd(cmd);
 		if (strcmp(tokens[0], "exit") == 0)
 		{
-			free(tokens[0]);
-			free(tokens);
+			free_tokens(tokens);
 			free(cmd_copy);
 			exit(EXIT_SUCCESS);
 		}
-		check_token(tokens, argv);
-		/*free(tokens[0]);*/
-		free(tokens[0]);
-		free(tokens);
+		status = check_token(tokens, argv);
+		free_tokens(tokens);
 		free(cmd_copy);
 	}
-	return (0);
+	return (status);
 }

@@ -7,9 +7,10 @@
  * Return: void
  */
 
-void check_token(char **tokens, char *argv[])
+int check_token(char **tokens, char *argv[])
 {
 	char *full_path;
+	int status = 0;
 
 	if (strcmp(tokens[0], "env") == 0)
 		print_env();
@@ -18,8 +19,9 @@ void check_token(char **tokens, char *argv[])
 	else
 	{
 		full_path = search_path(tokens[0]);
-		exec_cmd(tokens, full_path, argv);
+		status = exec_cmd(tokens, full_path, argv);
 		if (full_path != NULL)
 			free(full_path);
 	}
+	return (status);
 }
