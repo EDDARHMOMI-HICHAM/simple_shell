@@ -38,6 +38,8 @@ void print_env(void);
 int check_token(char **tokens, char *argv[]);
 void rem_space(char *str);
 void free_tokens(char **tokens);
+int _setenv(char *param, char *value);
+int _unsetenv(char *param);
 
 #endif
 
