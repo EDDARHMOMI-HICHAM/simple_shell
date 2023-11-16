@@ -15,7 +15,7 @@ int main(int argc, char *argv[], char *env[])
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
-	(void) argc, (void) env;
+	(void) env, (void) argc;
 
 	if (!isatty(fd))
 		file = stdin;

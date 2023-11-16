@@ -23,11 +23,13 @@ int file_exists(char *path)
 
 char *search_path(char *cmd)
 {
-	char *path_env = NULL;
-	char *path = NULL;
-	char *token = NULL;
-	char *full_path;
+	char *path_env = NULL, *path = NULL, *token = NULL;
+	char *full_path, *abs_path;
 
+	abs_path = strdup(cmd);
+	if (file_exists(abs_path))
+		return (abs_path);
+	free(abs_path);
 	path_env = getenv("PATH");
 	if (!path_env)
 	{
