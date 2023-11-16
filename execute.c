@@ -34,9 +34,10 @@ int exec_cmd(char **cmd, char *cmd_path, char *argv[])
 	else
 	{
 		waitpid(child, &status, 0);
+		status =  WIFEXITED(status) ? WEXITSTATUS(status) : -1;
 
 	}
 
-	return (0);
+	return (status);
 }
 
