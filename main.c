@@ -15,9 +15,11 @@ int main(int argc, char *argv[], char *env[])
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
-	(void) env, (void) argc;
+	(void) env;
 
-	if (!isatty(fd))
+	if (argc == 2)
+		file = fopen(argv[1], "r");
+	else if (!isatty(fd))
 		file = stdin;
 	else
 		file = NULL;

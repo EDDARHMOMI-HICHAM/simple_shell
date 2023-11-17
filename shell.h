@@ -16,6 +16,7 @@
 #include <sys/resource.h>
 #include <errno.h>
 #include <ctype.h>
+#include <limits.h>
 
 
 #define LAST_ENTERD 1024

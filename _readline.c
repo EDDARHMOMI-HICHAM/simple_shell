@@ -25,7 +25,7 @@ void _readline(char *cmd, int *nread, FILE *file)
 			*nread = 0;
 			if (file != stdin)
 			{
-				write(STDOUT_FILENO, "\n", 1);
+				/*write(STDOUT_FILENO, "\n", 1);*/
 				exit(EXIT_SUCCESS);
 			}
 			return;
