@@ -41,7 +41,6 @@ void rem_space(char *str);
 void free_tokens(char **tokens);
 int _setenv(char *param, char *value);
 int _unsetenv(char *param);
-int execute_from_f(char *filename);
 
 #endif
 
