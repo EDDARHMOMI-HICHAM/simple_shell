@@ -33,7 +33,7 @@ int _setenv(char *param, char *value)
 		new_param[i] = value[j];
 	new_param[i] = '\0';
 
-	if (putenv(new_param) != 0)
+	if (setenv(param, value, 1) != 0)
 	{
 		fprintf(stderr, "Failed to set environment variable %s\n", param);
 		free(new_param);
