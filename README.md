@@ -4,7 +4,8 @@
 This is a simple shell project implemented in <h3>C</h3>. It supports basic shell commands, such as ls, cd, pwd, echo, and exit. The shell can also be used to pipe commands together and to execute commands in the background.
 
 
-<h1>Build Instructions</h2>
+<h2>Build Instructions</h2>
+
 
 To build the shell, run the following command:
 
@@ -14,10 +15,13 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 
 <h1>Usage</h2>
 
+
 To run the shell, simply type ./hsh. The shell will then prompt you for a command. Enter a command and press enter to execute it.
 
 
-<h1>Commands</h1>
+<h2>Commands</h2>
+
+
 
 The following commands are supported by the shell:
 
@@ -38,6 +42,7 @@ ls | grep "my_file.txt"
 This would print the names of all files in the current directory that contain the string "my_file.txt".
 
 <h2>Examples</h2>
+
 
 The following are some examples of how to use the shell:
 
@@ -72,6 +77,7 @@ exit
 ```
 
 <h2>info</h2>
+
 
 The shell is still under development, and there are some known issues. For example, the shell does not support all shell commands, and it does not handle errors .
 </body>
