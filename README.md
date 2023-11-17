@@ -1,7 +1,7 @@
 
 <body>
 
-This is a simple shell project implemented in C. It supports basic shell commands, such as ls, cd, pwd, echo, and exit. The shell can also be used to pipe commands together and to execute commands in the background.
+This is a simple shell project implemented in <h3>C</h3>. It supports basic shell commands, such as ls, cd, pwd, echo, and exit. The shell can also be used to pipe commands together and to execute commands in the background.
 
 
 <h1>Build Instructions</h2>
