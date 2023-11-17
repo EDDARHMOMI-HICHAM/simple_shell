@@ -17,21 +17,16 @@ int change_dir(char *cmd)
 	if (cmd == NULL || strcmp(cmd, "~") == 0)
 	{
 		if (chdir(getenv("HOME")) != 0)
-		{
-			perror("Failed to change directory to home");
 			return (1);
-		}
 	}
 
 	else if (access(cmd, F_OK) != 0)
 	{
-		perror("Directory does not exist");
 		return (1);
 
 	}
 	else if (chdir(cmd) != 0)
 	{
-		perror("Failed to change directory");
 		return (1);
 	}
 	getcwd(n_wdir, sizeof(n_wdir));
