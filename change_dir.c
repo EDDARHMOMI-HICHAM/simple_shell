@@ -20,6 +20,16 @@ int change_dir(char *cmd)
 			return (1);
 	}
 
+	else if (strcmp(cmd, "-") == 0)
+	{
+		if (chdir(getenv("OLDPWD")) != 0)
+		{
+			printf("Failed to change directory to prev dir.\n");
+			return (1);
+		}
+		return (0);
+	}
+
 	else if (access(cmd, F_OK) != 0)
 	{
 		return (1);
