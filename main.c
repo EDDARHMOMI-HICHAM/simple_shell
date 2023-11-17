@@ -11,7 +11,7 @@
 int main(int argc, char *argv[], char *env[])
 {
 	char cmd[1024], prompt[] = "$ ";
-	int nread = 0, fd = fileno(stdin), status = 0 /*pipe = 1 i = 0*/, status_f;
+	int nread = 0, fd = fileno(stdin), status = 0 /*pipe = 1 i = 0*/;
 	char *cmd_copy;
 	char **tokens;
 	FILE *file;
@@ -45,20 +45,6 @@ int main(int argc, char *argv[], char *env[])
 		free_tokens(tokens);
 		free(cmd_copy);
 	}
-
-
-	if (argc != 2)
-	{
-		fprintf(stderr, "Usage: simple_shell [filename]\n");
-		exit(1);
-	}
-
-	status_f = execute_from_f(argv[1]);
-
-	if (status_f != 0)
-		exit(1);
-
-
 
 	return (status);
 }
