@@ -25,6 +25,7 @@ int exec_cmd(char **cmd, char *cmd_path, char *argv[])
 	if (child == 0)
 	{
 		execve(cmd_path, cmd, env);
+		return (2);
 	}
 	else if (child < 0)
 	{

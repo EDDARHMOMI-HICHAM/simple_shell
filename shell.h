@@ -26,14 +26,14 @@ extern char **environ;
 
 int _putchar(char c);
 char **tokenize_cmd(char *cmd);
-void _readline(char *cmd, int *nread, FILE *file);
+void _readline(char *cmd, int *nread, FILE *file, int sig);
 void prompt(void);
 int _strlen(char *str);
 int exec_cmd(char **cmd, char *cmd_path, char *argv[]);
 int exit_shs(char *cmd);
 char *search_path(char *cmd);
 int _strlen(char *str);
-int change_dir(char *cmd);
+int change_dir(char *cmd, char **argv);
 void handle_ctrl_d(void);
 void add_history(char *cmd);
 void print_env(void);
@@ -42,6 +42,7 @@ void rem_space(char *str);
 void free_tokens(char **tokens);
 int _setenv(char *param, char *value);
 int _unsetenv(char *param);
+FILE *check_source(int argc, int fd, char **argv, int *sig);
 
 #endif
 

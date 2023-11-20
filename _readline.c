@@ -5,10 +5,11 @@
  * @nread: a pointer to update the no of chars read
  * @cmd: the input from the user
  * @file: the file to read from, stdin or redirected
+ * @sig: int flag for input type
  * Return: returns the arrays of chars read
  */
 
-void _readline(char *cmd, int *nread, FILE *file)
+void _readline(char *cmd, int *nread, FILE *file, int sig)
 {
 	if (file == NULL)
 	{
@@ -25,7 +26,8 @@ void _readline(char *cmd, int *nread, FILE *file)
 			*nread = 0;
 			if (file != stdin)
 			{
-				/*write(STDOUT_FILENO, "\n", 1);*/
+				if (sig)
+					fclose(file);
 				exit(EXIT_SUCCESS);
 			}
 			return;
@@ -34,9 +36,10 @@ void _readline(char *cmd, int *nread, FILE *file)
 	}
 	if (*nread == 0)
 	{
+		if (sig)
+			fclose(file);
 		write(STDOUT_FILENO, "\n", 1);
 		exit(EXIT_SUCCESS);
 	}
 	cmd[*nread - 1] = '\0';
-
 }

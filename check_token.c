@@ -15,7 +15,7 @@ int check_token(char **tokens, char *argv[])
 	if (strcmp(tokens[0], "env") == 0)
 		print_env();
 	else if (strcmp(tokens[0], "cd") == 0)
-		change_dir(tokens[1]);
+		change_dir(tokens[1], argv);
 	else if (strcmp(tokens[0], "setenv") == 0)
 		status = _setenv(tokens[1], tokens[2]);
 	else if (strcmp(tokens[0], "unsetenv") == 0)
