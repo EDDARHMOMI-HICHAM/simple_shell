@@ -16,7 +16,7 @@ int change_dir(char *cmd, char **argv)
 
 	if (cmd == NULL || strcmp(cmd, "~") == 0)
 	{
-		if (chdir(getenv("HOME")) != 0 || (chdir(getenv("HOME")) != 0) != 0)
+		if (chdir(getenv("HOME")) != 0)
 		{
 			perror(cmd);
 			return (1);
