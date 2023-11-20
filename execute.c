@@ -15,7 +15,7 @@ int exec_cmd(char **cmd, char *cmd_path, char *argv[])
 	char **env = environ;
 	pid_t child = 0;
 	int status;
-	printf("print cmd: %s\n", cmd_path);
+
 	if (cmd_path == NULL)
 	{
 		fprintf(stderr, "%s: 1: %s: not found\n", argv[0], cmd[0]);
