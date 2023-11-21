@@ -2,15 +2,12 @@
 
 /**
  * _setenv - A function that sets or update new environment variable
- * @param: a string key
- * @value: the value
+ * @params: a string key
  * Return: int
  */
 
 int _setenv(char *param, char *value)
 {
-	int i, j;
-	char *new_param;
 
 	if (param == NULL || value == NULL)
 	{
@@ -18,28 +15,11 @@ int _setenv(char *param, char *value)
 		return (-1);
 	}
 
-	new_param = malloc(_strlen(param) + _strlen(value) + 2);
-	if (new_param == NULL)
-	{
-		fprintf(stderr, "Memory Allocation fails");
-		return (-1);
-	}
-
-	for (i = 0; param[i] != '\0'; i++)
-		new_param[i] = param[i];
-	new_param[i] = '=';
-
-	for (j = 0; value[j] != '\0'; j++, i++)
-		new_param[i] = value[j];
-	new_param[i] = '\0';
-
 	if (setenv(param, value, 1) != 0)
 	{
 		fprintf(stderr, "Failed to set environment variable %s\n", param);
-		free(new_param);
 		return (-1);
 	}
-	free(new_param);
 	return (0);
 }
 
